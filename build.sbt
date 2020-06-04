@@ -42,4 +42,3 @@ lazy val root = (project in file("."))
       compilerPlugin("com.olegpy"      %% "better-monadic-for" % BetterMonadicForVersion % Test),
     ),
   )
-
