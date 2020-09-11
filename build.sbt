@@ -1,3 +1,4 @@
+
 val BetterMonadicForVersion = "0.3.1"
 val CatsEffectVersion       = "2.2.0"
 val CatsVersion             = "2.2.0"
