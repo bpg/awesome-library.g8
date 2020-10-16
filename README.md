@@ -22,7 +22,7 @@ But at this point I don't think I will be merging it back to the upstream, as I 
 Using [sbt](https://www.scala-sbt.org/download.html) run the following in a terminal:
 
 ```sh
-sbt --sbt-version 1.3.13 new bpg/awesome-library.g8
+sbt new bpg/awesome-library.g8
 ```
 
 ### Setting Up GitHub (with `main` instead of `master`)
