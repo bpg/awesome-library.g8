@@ -22,7 +22,7 @@ jobs:
       - name: Set up Ruby 2.7 (for microsite)
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.7.xx
+          ruby-version: 2.7.x
 
       - name: Install microsite dependencies
         run: bundle install --system --gemfile=src/main/g8/site/Gemfile
