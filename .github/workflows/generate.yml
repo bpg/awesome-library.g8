@@ -10,19 +10,19 @@ jobs:
 
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.4.0
+        uses: styfle/cancel-workflow-action@0.5.0
         with:
           access_token: ${{ secrets.GH_TOKEN }}
 
       - uses: actions/checkout@v2
-      - uses: olafurpg/setup-scala@v5
+      - uses: olafurpg/setup-scala@v10
         with:
           java-version: adopt@1.11
 
-      - name: Set up Ruby 2.6 (for microsite)
+      - name: Set up Ruby 2.7 (for microsite)
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
+          ruby-version: 2.7.xx
 
       - name: Install microsite dependencies
         run: bundle install --system --gemfile=src/main/g8/site/Gemfile
