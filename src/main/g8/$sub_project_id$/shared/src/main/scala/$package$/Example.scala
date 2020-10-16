@@ -21,8 +21,7 @@ import cats._
 import cats.implicits._
 
 object Example {
-  /**
-    * Example function.
+  /** Example function.
     *
     * Usage:
     * {{{
