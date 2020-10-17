@@ -36,8 +36,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: olafurpg/setup-scala@v5
-      - uses: rlespinasse/github-slug-action@v2
+      - uses: olafurpg/setup-scala@v10
+        with:
+          java-version: adopt@1.11
+      - uses: rlespinasse/github-slug-action@v2.x
 
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v3
