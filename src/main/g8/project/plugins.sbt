@@ -1,4 +1,4 @@
-val ScalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).filter(_.nonEmpty).getOrElse("1.3.0")
+val ScalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).filter(_.nonEmpty).getOrElse("1.3.1")
 
 addSbtPlugin("ch.epfl.scala"             % "sbt-scalafix"                  % "0.9.23")
 addSbtPlugin("com.codecommit"            % "sbt-github-actions"            % "0.9.3")
