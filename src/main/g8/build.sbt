@@ -53,7 +53,7 @@ val MacroParadiseVersion = "2.1.1"
   *  - [[https://github.com/scalatest/scalatest]]
   *  - [[https://github.com/scalatest/scalatestplus-scalacheck/]]
   */
-val ScalaTestVersion = "3.2.2"
+val ScalaTestVersion = "3.2.3"
 val ScalaTestPlusVersion = "3.2.2.0"
 
 /** Library for property-based testing:
@@ -64,7 +64,7 @@ val ScalaCheckVersion = "1.15.1"
 /** Compiler plugin for working with partially applied types:
   * [[https://github.com/typelevel/kind-projector]]
   */
-val KindProjectorVersion = "0.11.0"
+val KindProjectorVersion = "0.11.1"
 
 /** Compiler plugin for fixing "for comprehensions" to do desugaring w/o `withFilter`:
   * [[https://github.com/typelevel/kind-projector]]
