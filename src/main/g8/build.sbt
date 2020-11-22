@@ -84,7 +84,7 @@ val AmmoniteVersion = "2.2.0"
 /** Used for publishing the microsite:
   * [[https://github.com/47degrees/github4s]]
   */
-val GitHub4sVersion = "0.26.0"
+val GitHub4sVersion = "0.27.1"
 
 /**
   * Defines common plugins between all projects.
