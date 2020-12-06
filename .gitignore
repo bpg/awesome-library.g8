@@ -1,6 +1,7 @@
 !/.gitignore
 !/.scalafmt.conf
 .bloop
+.bsp
 .classpath
 .DS_Store
 .idea*
