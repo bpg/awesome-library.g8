@@ -76,11 +76,6 @@ val BetterMonadicForVersion = "0.3.1"
   */
 val SilencerVersion = "1.7.1"
 
-/** Li Haoyi Ammonite repl embed:
-  * [[https://ammonite.io/]]
-  */
-val AmmoniteVersion = "2.2.0"
-
 /** Used for publishing the microsite:
   * [[https://github.com/47degrees/github4s]]
   */
@@ -110,8 +105,8 @@ lazy val sharedSettings = Seq(
   githubRelativeRepositoryID := "$github_repository_name$",
 
   organization := "$organization$",
-  scalaVersion := "2.13.3",
-  crossScalaVersions := Seq("2.12.12", "2.13.3"),
+  scalaVersion := "2.13.4",
+  crossScalaVersions := Seq("2.12.12", "2.13.4"),
 
   // More version specific compiler options
   scalacOptions ++= (CrossVersion.partialVersion(scalaVersion.value) match {
@@ -337,16 +332,6 @@ lazy val $sub_project_id$ = crossProject(JSPlatform, JVMPlatform)
       "org.typelevel"     %%% "cats-effect-laws" % CatsEffectVersion % Test,
     ),
   )
-
-libraryDependencies += {
-  "com.lihaoyi" % "ammonite" % AmmoniteVersion % "test" cross CrossVersion.full
-}
-
-sourceGenerators in Test += Def.task {
-  val file = (sourceManaged in Test).value / "amm.scala"
-  IO.write(file, """object amm extends App { ammonite.Main.main(args) }""")
-  Seq(file)
-}.taskValue
 
 lazy val $sub_project_id$JVM = $sub_project_id$.jvm
 lazy val $sub_project_id$JS  = $sub_project_id$.js

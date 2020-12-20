@@ -3,8 +3,7 @@ name: scala-steward
 on:
   schedule:
     - cron: "30 22 * * *"
-  repository_dispatch:
-    types: [scala-steward]
+  workflow_dispatch:
 
 jobs:
   scala-steward:
