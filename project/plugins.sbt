@@ -1,7 +1,7 @@
 val ScalaJSVersion = Option(System.getenv("SCALAJS_VERSION")).filter(_.nonEmpty).getOrElse("1.4.0")
 
 addSbtPlugin("ch.epfl.scala"             % "sbt-scalafix"                  % "0.9.25")
-addSbtPlugin("com.codecommit"            % "sbt-github-actions"            % "0.9.5")
+addSbtPlugin("com.codecommit"            % "sbt-github-actions"            % "0.10.0")
 addSbtPlugin("com.47deg"                 % "sbt-microsites"                % "1.3.0")
 addSbtPlugin("com.eed3si9n"              % "sbt-unidoc"                    % "0.4.3")
 addSbtPlugin("com.geirsson"              % "sbt-ci-release"                % "1.5.5")
