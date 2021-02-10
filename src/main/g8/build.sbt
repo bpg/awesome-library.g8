@@ -26,12 +26,12 @@ addCommandAlias("release",    ";+clean ;ci-release ;unidoc ;site/publishMicrosit
 /** Standard FP library for Scala:
   * [[https://typelevel.org/cats/]]
   */
-val CatsVersion = "2.3.1"
+val CatsVersion = "2.4.1"
 
 /** FP library for describing side-effects:
   * [[https://typelevel.org/cats-effect/]]
   */
-val CatsEffectVersion = "2.3.1"
+val CatsEffectVersion = "2.4.1"
 
 /** ZIO asynchronous and concurrent programming library
   * [[https://zio.dev/]]
