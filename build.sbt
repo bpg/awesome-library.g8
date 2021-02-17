@@ -1,6 +1,6 @@
 
 val BetterMonadicForVersion = "0.3.1"
-val CatsEffectVersion       = "2.3.1"
+val CatsEffectVersion       = "2.3.3"
 val CatsVersion             = "2.3.1"
 val GitHub4sVersion         = "0.28.2"
 val KindProjectorVersion    = "0.11.3"
