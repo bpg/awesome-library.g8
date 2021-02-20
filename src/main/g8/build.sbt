@@ -26,7 +26,7 @@ addCommandAlias("release",    ";+clean ;ci-release ;unidoc ;site/publishMicrosit
 /** Standard FP library for Scala:
   * [[https://typelevel.org/cats/]]
   */
-val CatsVersion = "2.3.1"
+val CatsVersion = "2.4.2"
 
 /** FP library for describing side-effects:
   * [[https://typelevel.org/cats-effect/]]
