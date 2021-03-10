@@ -36,7 +36,7 @@ val CatsEffectVersion = "2.3.3"
 /** ZIO asynchronous and concurrent programming library
   * [[https://zio.dev/]]
   */
-val ZIOVersion = "1.0.4-2"
+val ZIOVersion = "1.0.5"
 
 /** First-class support for type-classes:
   * [[https://github.com/typelevel/simulacrum]]
