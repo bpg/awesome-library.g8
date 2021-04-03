@@ -31,7 +31,7 @@ val CatsVersion = "2.5.0"
 /** FP library for describing side-effects:
   * [[https://typelevel.org/cats-effect/]]
   */
-val CatsEffectVersion = "2.4.1"
+val CatsEffectVersion = "3.0.1"
 
 /** ZIO asynchronous and concurrent programming library
   * [[https://zio.dev/]]
@@ -53,7 +53,7 @@ val MacroParadiseVersion = "2.1.1"
   *  - [[https://github.com/scalatest/scalatest]]
   *  - [[https://github.com/scalatest/scalatestplus-scalacheck/]]
   */
-val ScalaTestVersion = "3.2.6"
+val ScalaTestVersion = "3.2.7"
 val ScalaTestPlusVersion = "3.2.2.0"
 
 /** Library for property-based testing:
