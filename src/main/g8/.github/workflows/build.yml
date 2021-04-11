@@ -182,7 +182,8 @@ jobs:
 
       - name: Install microsite dependencies
         run: |
-          bundle install --system --gemfile=site/Gemfile
+          bundle config set --local system 'true'
+          bundle install --gemfile=src/main/g8/site/Gemfile
 
       - name: Publish Website
         run: sbt +clean site/publishMicrosite

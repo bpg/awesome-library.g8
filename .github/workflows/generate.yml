@@ -20,7 +20,9 @@ jobs:
           ruby-version: 2.7.3
 
       - name: Install microsite dependencies
-        run: bundle install --system --gemfile=src/main/g8/site/Gemfile
+        run: |
+          bundle config set --local system 'true'
+          bundle install --gemfile=src/main/g8/site/Gemfile
 
       - name: Test
         run: sbt test
