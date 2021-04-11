@@ -22,12 +22,10 @@ But at this point I don't think I will be merging it back to the upstream, as I 
 Using [sbt](https://www.scala-sbt.org/download.html) run the following in a terminal:
 
 ```sh
-sbt new bpg/awesome-library.g8
+sbt new bpg/awesome-scala-library.g8
 ```
 
-### Setting Up GitHub (with `main` instead of `master`)
-
-**NOTE:** the template is set to use `main` as the default branch, instead of `master` and this is reflected in the README pixels.
+### Setting Up GitHub
 
 First initialize the local git repository, and do your first commit:
 
@@ -35,8 +33,6 @@ First initialize the local git repository, and do your first commit:
 cd $project-folder/
 
 git init
-
-git branch -m master main
 
 git commit -am 'Initial commit'
 ```
@@ -48,15 +44,6 @@ git remote add origin https://github.com/$GITHUB_USERNAME/$GITHUB_REPOSITORY
 
 git push -u origin main
 ```
-
-Next in GitHub:
-
-- Navigate to your repository > Settings > Branches
-- Select main as your default branch
-- Update your branch protection rules
-- Navigate to Code > Branches and delete `master`
-
-(Hoping GitHub will soon make this easier)
 
 ### Configuration of Automatic Releases to Sonatype
 

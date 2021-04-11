@@ -95,7 +95,7 @@ def defaultPlugins: Project ⇒ Project =
       .enablePlugins(GitBranchPrompt)
   }
 
-scalafixDependencies in ThisBuild += "com.github.liancheng" %% "organize-imports" % "0.3.1-RC3"
+ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.3.1-RC3"
 
 lazy val sharedSettings = Seq(
   projectTitle := "$name$",
@@ -122,7 +122,7 @@ lazy val sharedSettings = Seq(
   }),
 
   // Turning off fatal warnings for doc generation
-  scalacOptions.in(Compile, doc) ~= filterConsoleScalacOptions,
+  Compile / doc / scalacOptions ~= filterConsoleScalacOptions,
   // Silence all warnings from src_managed files
   scalacOptions     += "-P:silencer:pathFilters=.*[/]src_managed[/].*",
   semanticdbEnabled := true,
@@ -132,7 +132,7 @@ lazy val sharedSettings = Seq(
   addCompilerPlugin("com.github.ghik"                    % "silencer-plugin" % SilencerVersion cross CrossVersion.full),
   // ScalaDoc settings
   autoAPIMappings := true,
-  scalacOptions in ThisBuild ++= Seq(
+  ThisBuild / scalacOptions ++= Seq(
     // Note, this is used by the doc-source-url feature to determine the
     // relative path of a given source file. If it's not a prefix of a the
     // absolute path of the source file, the absolute path of that file
@@ -145,12 +145,12 @@ lazy val sharedSettings = Seq(
   // ---------------------------------------------------------------------------
   // Options for testing
 
-  logBuffered in Test := false,
-  logBuffered in IntegrationTest := false,
+  Test / logBuffered := false,
+  IntegrationTest / logBuffered := false,
 
   // ---------------------------------------------------------------------------
   // Options meant for publishing on Maven Central
-  publishArtifact in Test := false,
+  Test / publishArtifact := false,
   pomIncludeRepository    := { _ => false }, // removes optional dependencies
   licenses                := Seq("APL2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt")),
   homepage                := Some(url(projectWebsiteFullURL.value)),
@@ -201,19 +201,19 @@ def defaultCrossProjectConfiguration(pr: CrossProject) = {
         else
           ver
       }
-      val l = (baseDirectory in LocalRootProject).value.toURI.toString
+      val l = (LocalRootProject / baseDirectory).value.toURI.toString
       val g = s"https://raw.githubusercontent.com/\${githubFullRepositoryID.value}/\$tagOrHash/"
       s"-P:scalajs:mapSourceURI:\$l->\$g"
     },
     // Needed in order to publish for multiple Scala.js versions:
     // https://github.com/olafurpg/sbt-ci-release#how-do-i-publish-cross-built-scalajs-projects
-    skip.in(publish) := customScalaJSVersion.isEmpty,
+    publish / skip := customScalaJSVersion.isEmpty,
   )
 
   val sharedJVMSettings = Seq(
     // Needed in order to publish for multiple Scala.js versions:
     // https://github.com/olafurpg/sbt-ci-release#how-do-i-publish-cross-built-scalajs-projects
-    skip.in(publish) := customScalaJSVersion.isDefined,
+    publish / skip := customScalaJSVersion.isDefined,
   )
 
   pr.configure(defaultPlugins)
@@ -275,13 +275,13 @@ lazy val site = project
         "gray-lighter" -> "#F4F3F4",
         "white-color" -> "#FFFFFF"
       ),
-      fork in mdoc := true,
+      mdoc / fork := true,
       libraryDependencies += "com.47deg" %% "github4s" % GitHub4sVersion,
       micrositePushSiteWith := GitHub4s,
       micrositeGithubToken := sys.env.get("GITHUB_TOKEN"),
-      micrositeExtraMdFilesOutput := (resourceManaged in Compile).value / "jekyll",
+      micrositeExtraMdFilesOutput := (Compile / resourceManaged).value / "jekyll",
       micrositeConfigYaml := ConfigYml(
-        yamlPath = Some((resourceDirectory in Compile).value / "microsite" / "_config.yml")
+        yamlPath = Some((Compile / resourceDirectory).value / "microsite" / "_config.yml")
       ),
       micrositeExtraMdFiles := Map(
         file("README.md") -> ExtraMdFileConfig("index.md", "page", Map("title" -> "Home", "section" -> "home", "position" -> "100")),
@@ -291,24 +291,26 @@ lazy val site = project
         file("LICENSE.md") -> ExtraMdFileConfig("LICENSE.md", "page", Map("title" -> "License", "section" -> "license", "position" -> "104")),
       ),
       docsMappingsAPIDir := s"api",
-      addMappingsToSiteDir(mappings in (ScalaUnidoc, packageDoc) in root, docsMappingsAPIDir),
-      sourceDirectory in Compile := baseDirectory.value / "src",
-      sourceDirectory in Test := baseDirectory.value / "test",
-      mdocIn := (sourceDirectory in Compile).value / "mdoc",
+      addMappingsToSiteDir((ScalaUnidoc / packageDoc / mappings) in root, docsMappingsAPIDir),
+      Compile / sourceDirectory := baseDirectory.value / "src",
+      Test / sourceDirectory := baseDirectory.value / "test",
+      mdocIn := (Compile / sourceDirectory).value / "mdoc",
 
-      run in Compile := {
+      Compile / run := {
         import scala.sys.process._
 
         val s: TaskStreams = streams.value
         val shell: Seq[String] = if (sys.props("os.name").contains("Windows")) Seq("cmd", "/c") else Seq("bash", "-c")
 
-        val jekyllServe: String = s"jekyll serve --open-url --baseurl \${(micrositeBaseUrl in Compile).value}"
+        val jekyllServe: String = s"jekyll serve --open-url --baseurl \${(Compile / micrositeBaseUrl).value}"
 
         s.log.info("Running Jekyll...")
-        Process(shell :+ jekyllServe, (micrositeExtraMdFilesOutput in Compile).value) !
+        Process(shell :+ jekyllServe, (Compile / micrositeExtraMdFilesOutput).value) !
       },
     )
   }
+
+ThisBuild / libraryDependencySchemes += "org.typelevel" %% "cats-effect" % VersionScheme.Always
 
 lazy val $sub_project_id$ = crossProject(JSPlatform, JVMPlatform)
   .crossType(CrossType.Full)

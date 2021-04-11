@@ -18,8 +18,8 @@ lazy val root = (project in file("."))
   .settings(
     scalaVersion       := "2.12.12",
     crossScalaVersions := Seq("2.12.12", "2.13.4"),
-    test in Test := {
-      val _ = (g8Test in Test).toTask("").value
+    Test / test := {
+      val _ = (Test / g8Test).toTask("").value
     },
     scriptedLaunchOpts ++= List(
       "-Xms1024m",
