@@ -12,12 +12,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: olafurpg/setup-scala@v10
         with:
-          java-version: adopt@1.11
+          java-version: zulu@1.16
 
       - name: Set up Ruby 2.7 (for microsite)
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.x
+          ruby-version: 2.7.3
 
       - name: Install microsite dependencies
         run: bundle install --system --gemfile=src/main/g8/site/Gemfile
@@ -33,7 +33,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: olafurpg/setup-scala@v10
         with:
-          java-version: adopt@1.11
+          java-version: zulu@1.16
       - uses: rlespinasse/github-slug-action@v2.x
 
       - name: Import GPG key
@@ -52,7 +52,7 @@ jobs:
 
           find ./my-awesome-library/. -maxdepth 1 ! -name .git ! -name . -exec rm -rf {} \;
 
-          csbt new bpg/awesome-library.g8 --name="My Awesome Library"
+          sbt new bpg/awesome-library.g8 --name="My Awesome Library"
           cd ./my-awesome-library
 
           git config --global user.email "bot@bpgca.net"

@@ -107,9 +107,9 @@ jobs:
           java-version: "adopt@1.\${{ matrix.java }}"
 
       - name: Set up Ruby 2.7 (for microsite)
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.x
+          ruby-version: 2.7.3
 
       - name: Install microsite dependencies
         run: bundle install --system --gemfile=site/Gemfile
@@ -170,15 +170,15 @@ jobs:
     needs: [ publish_sonatype ]
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: olafurpg/setup-scala@v10
         with:
           java-version: "adopt@1.8"
 
       - name: Set up Ruby 2.7 (for microsite)
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.x
+          ruby-version: 2.7.3
 
       - name: Install microsite dependencies
         run: |
