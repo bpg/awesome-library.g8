@@ -12,7 +12,7 @@ val ScalaTestVersion        = "3.2.7"
 val ScalaTestPlusVersion    = "3.2.2.0"
 val SilencerVersion         = "1.7.1"
 val SimulacrumVersion       = "1.0.1"
-val ZIOVersion              = "1.0.5"
+val ZIOVersion              = "1.0.6"
 
 lazy val root = (project in file("."))
   .settings(
