@@ -14,4 +14,5 @@ pull_request_rules:
     actions:
       merge:
         method: squash
-        
+        merge_bot_account: bpg-bot
+        update_bot_account: bpg-bot
