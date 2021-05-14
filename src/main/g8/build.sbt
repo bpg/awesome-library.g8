@@ -26,7 +26,7 @@ addCommandAlias("release",    ";+clean ;ci-release ;unidoc ;site/publishMicrosit
 /** Standard FP library for Scala:
   * [[https://typelevel.org/cats/]]
   */
-val CatsVersion = "2.6.0"
+val CatsVersion = "2.6.1"
 
 /** FP library for describing side-effects:
   * [[https://typelevel.org/cats-effect/]]
@@ -64,7 +64,7 @@ val ScalaCheckVersion = "1.15.4"
 /** Compiler plugin for working with partially applied types:
   * [[https://github.com/typelevel/kind-projector]]
   */
-val KindProjectorVersion = "0.11.3"
+val KindProjectorVersion = "0.12.0"
 
 /** Compiler plugin for fixing "for comprehensions" to do desugaring w/o `withFilter`:
   * [[https://github.com/typelevel/kind-projector]]
