@@ -31,7 +31,7 @@ val CatsVersion = "2.6.1"
 /** FP library for describing side-effects:
   * [[https://typelevel.org/cats-effect/]]
   */
-val CatsEffectVersion = "3.2.5"
+val CatsEffectVersion = "3.2.7"
 
 /** ZIO asynchronous and concurrent programming library
   * [[https://zio.dev/]]
